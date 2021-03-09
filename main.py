@@ -13,7 +13,7 @@ def get_dt_obj(row):
 
 
 with open('./schedule.csv') as f:
-	reader = csv.reader(f, delimiter='\t')
+	reader = csv.reader(f, delimiter=',')
 
 	for row in reader:
 		link = row[0]

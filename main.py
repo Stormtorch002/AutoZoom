@@ -14,7 +14,7 @@ def get_dt_obj(row):
 
 with open('./schedule.csv') as f:
 	reader = csv.reader(f, delimiter='\t')
-	reader = reader.sort(key=get_dt_obj)
+	reader = list(reader).sort(key=get_dt_obj)
 
 
 	for row in reader:

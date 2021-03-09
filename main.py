@@ -16,6 +16,11 @@ with open('./schedule.csv') as f:
 	reader = csv.reader(f, delimiter=',')
 
 	for row in reader:
+		try:
+			name = row[2]
+		except IndexError:
+			name = ''
+			
 		link = row[0]
 
 		t_obj = get_dt_obj(row)
@@ -26,7 +31,7 @@ with open('./schedule.csv') as f:
 
 		delta = (t_obj - now).total_seconds()
 
-		print(f'Opening {link} at {row[1]}')
+		print(f'Opening {name} at {row[1]}')
 		time.sleep(delta)
-		print(f'Opening {link}...')
+		print(f'Opening {name}...')
 		webbrowser.open(link)

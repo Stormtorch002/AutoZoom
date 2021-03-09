@@ -14,10 +14,10 @@ def get_dt_obj(row):
 
 with open('./schedule.csv') as f:
 	reader = csv.reader(f, delimiter='\t')
-	reader = list(reader).sort(key=get_dt_obj)
-
 
 	for row in reader:
+		link = row[0]
+
 		t_obj = get_dt_obj(row)
 		now = datetime.datetime.now()
 
@@ -25,6 +25,8 @@ with open('./schedule.csv') as f:
 			continue
 
 		delta = (t_obj - now).total_seconds()
-		time.sleep(delta)
 
-		webbrowser.open(row[0])
+		print(f'Opening {link} at {row[1]}')
+		time.sleep(delta)
+		print(f'Opening {link}...')
+		webbrowser.open(link)

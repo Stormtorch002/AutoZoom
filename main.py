@@ -9,7 +9,7 @@ def get_dt_obj(row):
 	t = t.split(':')
 	h, m = int(t[0]), int(t[1])
 	t_obj = datetime.datetime.now()
-	return t_obj.replace(hour=h, minute=m)
+	return t_obj.replace(hour=h, minute=m, second=0)
 
 
 with open('./schedule.csv') as f:
